@@ -65,15 +65,16 @@ If you want to save it in bower.json file, remember to add flag --save
     </template>
     <template is="dom-if" if="{{prefetchUrl}}">
     <iron-ajax
-    auto
-    url="{{prefetchUrl}}"
-    handle-as="json"
-    last-response="{{_prefetchedCandidates}}"
-    ></iron-ajax>
+      auto
+      url="{{prefetchUrl}}"
+      handle-as="json"
+      last-response="{{_prefetchedCandidates}}"
+    >
+    </iron-ajax>
     </template>
 
    <div style="position:relative;">
-    <paper-input value="{{inputValue}}" on-keyup="_keyup" on-keydown="_keydown"  label="{{placeholder}}"
+    <paper-input value="{{inputValue}}" on-keyup="_keyup" on-keydown="_keydown" label="{{placeholder}}"
       always-float-label="{{alwaysFloatLabel}}"
       autofocus="{{autofocus}}"
       char-counter="{{charCounter}}"
@@ -142,95 +143,95 @@ If you want to save it in bower.json file, remember to add flag --save
       /**
        * The label that will show up as the label for tags input. It not specified, no label will show up.
        */
-      label:{
-        type:String,
-        value:''
+      label: {
+        type: String,
+        value: ''
       },
       /**
        * The placeholder for the paper-input element.
        */
-      placeholder:{
-        type:String,
-        value:'Please enter values here'
+      placeholder: {
+        type: String,
+        value: 'Please enter values here'
       },
       /**
        * The candidates from local variable.
        */
-      localCandidates:{
-        type:Array,
-        value:[]
+      localCandidates: {
+        type: Array,
+        value: []
       },
       /**
        * Url for a prefectched list in json format for the list of suggestion candidates. The response should be something like: ["a","b"]
        */
-      prefetchUrl:String,
+      prefetchUrl: String,
       /**
       * The prefetched candidates get by prefetchUrl
       */
-      _prefetchedCandidates:{
-        type:Array,
-        value:[]
+      _prefetchedCandidates: {
+        type: Array,
+        value: []
       },
       /**
        * Internal variable holding all matched suggestions.
        */
-      _suggestions:{
-        type:Array,
-        value:[]
+      _suggestions: {
+        type: Array,
+        value: []
       },
       /**
        * Maximum number of suggestions to show up in typeahead.
        */
-      maxSuggestions:{
-        type:Number,
-        value:5
+      maxSuggestions: {
+        type: Number,
+        value: 5
       },
       /**
        * Remote url to perform a search using the value in the input. The input value will be passed in as url parameter. The placeholder should be %QUERY.
        */
-      remoteUrl:String,
+      remoteUrl: String,
        /**
        * Number of milliseconds to wait after user types a character.
        * This is helpful to reduce number of calls to remoteUrl based on performance consideration if it's set up properly based on how fast user usually types.
        * Default is undefined which means the search request to remoteUrl will be fired immediately after user types a character.
        * This propery only makes sense if remoteUrl is set up.
        */
-      remoteUrlWaitMs:{
-        type:Number,
-        value:undefined
+      remoteUrlWaitMs: {
+        type: Number,
+        value: undefined
       },
       /**
        * A boolean property to indicate if elements in the candidates list are json dictionary. 
        * When this property set up to be true, the candidates will be treated as list of json objects. Otherwise will be treated as list of strings.
        */
-      isCandidatesJson:{
-        type:Boolean,
-        value:false
+      isCandidatesJson: {
+        type: Boolean,
+        value: false
       },
       /**
        * An array to tell what property in the json object of candidate is searchable. 
        * This property only makes sense when property isCandidatesJson set to be true.
        */
-      searchableProps:{
-        type:Array,
-        value:[]
+      searchableProps: {
+        type: Array,
+        value: []
       },
       /**
         * The property in json object that should be chosen for the paper-input value when an element is selected from the suggestions.
         * This property only makes sense when property isCandidatesJson set to be true.
         */
-      displayProp:{
-        type:String,
-        value:"undefined"
+      displayProp: {
+        type: String,
+        value: "undefined"
       },
       /**
        * A boolean property to indicate if there is a searching going on to remoteUrl.
        * This propery only makes sense if remoteUrl is set up.
        */
-      remoteUrlSearching:{
-        type:Boolean,
-        value:false,
-        notify:true
+      remoteUrlSearching: {
+        type: Boolean,
+        value: false,
+        notify: true
       },
       /**
        * Input value.
@@ -242,69 +243,68 @@ If you want to save it in bower.json file, remember to add flag --save
       /**
        * Input object.
        */
-      inputObject:{
-        type:Object,
-        notify:true
+      inputObject: {
+        type: Object,
+        notify: true
       },
       /**
        * Bind this to the <paper-input>'s alwaysFloatLabel property.
        */
-      alwaysFloatLabel:Boolean,
+      alwaysFloatLabel: Boolean,
       /**
        * Bind this to the <paper-input>'s autofocus property.
        */
-      autofocus:Boolean,
+      autofocus: Boolean,
       /**
        * Bind this to the <paper-input>'s charCounter property.
        */
-      charCounter:Boolean,
+      charCounter: Boolean,
       /**
        * Bind this to the <paper-input>'s disabled property.
        */
-      disabled:Boolean,
+      disabled: Boolean,
       /**
        * Bind this to the <paper-input>'s errorMessage property.
        */
-      errorMessage:String,
+      errorMessage: String,
       /**
        * Bind this to the <paper-input>'s maxlength property.
        */
-      maxlength:Number,
+      maxlength: Number,
       /**
        * Bind this to the <paper-input>'s minlength property.
        */
-      minlength:Number,
+      minlength: Number,
       /**
        * Bind this to the <paper-input>'s noLabelFloat property.
        */
-      noLabelFloat:Boolean,
+      noLabelFloat: Boolean,
       /**
        * Bind this to the <paper-input>'s readonly property.
        */
-      readonly:Boolean,
+      readonly: Boolean,
       /**
        * Bind this to the <paper-input>'s required property.
        */
-      required:Boolean,
+      required: Boolean,
       /**
        * Bind this to the <paper-input>'s autoValidate property.
        */
-      autoValidate:Boolean,
+      autoValidate: Boolean,
       /**
        * Bind this to the <paper-input>'s pattern property.
        */
-      pattern:String
+      pattern: String
     },
 
     // Element Lifecycle
-
-    ready: function() {
-      // `ready` is called after all elements have been configured, but
-      // propagates bottom-up. This element's children are ready, but parents
-      // are not.
-      //
-      // This is the point where you should make modifications to the DOM (when
-      // necessary), or kick off any processes the element wants to perform.
+    // `ready` is called after all elements have been configured, but
+    // propagates bottom-up. This element's children are ready, but parents
+    // are not.
+    //
+    // This is the point where you should make modifications to the DOM (when
+    // necessary), or kick off any processes the element wants to perform.
+    ready: function() {      
       document.addEventListener("click", function(){
         var ptinputs = document.querySelectorAll('paper-typeahead-input')
         for (var i = 0; i < ptinputs.length; i ++){
@@ -315,21 +315,19 @@ If you want to save it in bower.json file, remember to add flag --save
       var input = Polymer.dom(this.root).querySelector('paper-input');
       input.$.input.autocomplete = 'address-level4';
     },
-
-    attached: function() {
-      // `attached` fires once the element and its parents have been inserted
-      // into a document.
-      //
-      // This is a good place to perform any work related to your element's
-      // visual state or active behavior (measuring sizes, beginning animations,
-      // loading resources, etc).
+    // `attached` fires once the element and its parents have been inserted
+    // into a document.
+    //
+    // This is a good place to perform any work related to your element's
+    // visual state or active behavior (measuring sizes, beginning animations,
+    // loading resources, etc).
+    attached: function() {   
     },
-
+    // The analog to `attached`, `detached` fires when the element has been
+    // removed from a document.
+    //
+    // Use this to clean up anything you did in `attached`.
     detached: function() {
-      // The analog to `attached`, `detached` fires when the element has been
-      // removed from a document.
-      //
-      // Use this to clean up anything you did in `attached`.
     },
     _itemSelect:function(e, detail){
       this.fire('pt-item-select',detail);
@@ -342,7 +340,7 @@ If you want to save it in bower.json file, remember to add flag --save
      */
     _keydown: function(e) {
       if (e.which == 40 || e.which == 38){
-          e.preventDefault();
+        e.preventDefault();
       }
     },
     /**
