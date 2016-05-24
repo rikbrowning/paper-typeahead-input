@@ -1,0 +1,41 @@
+{
+  "name": "paper-typeahead-input",
+  "authors": [
+    "Tianxiang Zhang <cenhiangapply@gmail.com>"
+  ],
+  "description": "paper-typeahead-input is an element providing typeahead feature for input.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "paper-typeahead-input.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/cheonhyangzhang/paper-typeahead-input/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-input": "PolymerElements/paper-input#^1.0.5",
+    "paper-menu": "PolymerElements/paper-menu#^1.0.0",
+    "paper-item": "PolymerElements/paper-item#^1.0.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "66e855bdac",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "66e855bdac3d7c6f4accf5c2e0f348c0680738b5"
+  },
+  "_source": "git://github.com/cheonhyangzhang/paper-typeahead-input.git",
+  "_target": "master",
+  "_originalSource": "cheonhyangzhang/paper-typeahead-input",
+  "_direct": true
+}
